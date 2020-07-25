@@ -1,4 +1,4 @@
-import { MessagingEvent } from '../../routes/webHook';
+import { MessagingEvent } from '../../routes/webhook';
 
 /*
  * Message Read Event

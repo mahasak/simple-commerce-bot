@@ -1,9 +1,10 @@
 import crypto from 'crypto';
-import config from 'config';
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 // App Secret can be retrieved from the App Dashboard
-const APP_SECRET: string = config.get('appSecret');
-
+const APP_SECRET:String = process.env.APP_SECRET ?? ""
 export default function verifyRequestSignature(req: any, res: any, buf: any) {
   var signature = req.headers["x-hub-signature"];
 
@@ -16,7 +17,7 @@ export default function verifyRequestSignature(req: any, res: any, buf: any) {
     var method = elements[0];
     var signatureHash = elements[1];
 
-    var expectedHash = crypto.createHmac('sha1', APP_SECRET)
+    var expectedHash = crypto.createHmac('sha1', APP_SECRET.toString())
       .update(buf)
       .digest('hex');
 

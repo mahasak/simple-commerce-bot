@@ -1,5 +1,5 @@
 import { sendTextMessage } from '../sendMessageActions';
-import { MessagingEvent } from '../../routes/webHook';
+import { MessagingEvent } from '../../routes/webhook';
 
 /*
  * Postback Event

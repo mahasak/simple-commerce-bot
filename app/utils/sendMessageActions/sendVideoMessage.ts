@@ -1,5 +1,8 @@
 import { callSendAPI } from '../callSendAPI';
-import { SERVER_URL } from '../../config';
+import * as dotenv from "dotenv";
+
+dotenv.config();
+const SERVER_URL = process.env.SERVER_URL
 /*
  * Send a video using the Send API.
  *

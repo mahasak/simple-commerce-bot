@@ -15,8 +15,11 @@ import {
   sendTextMessage
 } from '../sendMessageActions';
 
-import { SERVER_URL } from '../../config';
-import { MessagingEvent } from '../../routes/webHook';
+import * as dotenv from "dotenv";
+
+dotenv.config();
+const SERVER_URL = process.env.SERVER_URL
+import { MessagingEvent } from '../../routes/webhook';
 
 /*
  * Message Event

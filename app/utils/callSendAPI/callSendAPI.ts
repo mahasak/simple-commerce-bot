@@ -1,5 +1,8 @@
 import got from 'got';
-import { PAGE_ACCESS_TOKEN } from '../../config';
+import * as dotenv from "dotenv";
+
+dotenv.config();
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN
 
 export interface MessageData {
   messaging_type?: string;
@@ -22,7 +25,7 @@ interface SendMessageBody {
  *
  */
 export default async function callSendAPI(messageData: MessageData) {
-  const body: any = await got.post('https://graph.facebook.com/v2.6/me/messages', {
+  const body: any = await got.post('https://graph.facebook.com/v6.0/me/messages', {
     json: messageData,
     responseType: 'json',
   });

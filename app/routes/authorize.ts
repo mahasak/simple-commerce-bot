@@ -6,7 +6,7 @@ const router = express.Router();
  * (sendAccountLinking) is pointed to this URL.
  *
  */
-router.get('/', function (req, res) {
+router.get('/authorize', function (req, res) {
   var accountLinkingToken = req.query.account_linking_token;
   var redirectURI = req.query.redirect_uri;
 
